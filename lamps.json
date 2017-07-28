@@ -1,0 +1,16 @@
+{
+  "lamps": [
+    {
+      "name": "Woonkamer",
+      "id": 1
+    },
+    {
+      "name": "Keuken",
+      "id": 2
+    },
+    {
+      "name": "Tafel",
+      "id": 3
+    }
+  ]
+}
