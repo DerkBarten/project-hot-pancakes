@@ -5,7 +5,7 @@ $invalid_lamp = False;
 $not_set = False;
 $lamp_check = False;
 
-$file = file_get_contents("lamps.json");
+$file = file_get_contents("meeuwhuis.nl/lamps.json");
 $json = json_decode($file, true);
 $lamps = count($json['lamps']);
 if ($lamps == 0){
