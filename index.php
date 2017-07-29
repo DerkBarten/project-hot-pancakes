@@ -3,6 +3,14 @@
 $invalid_state = False;
 $invalid_lamp = False;
 $not_set = False;
+$lamp_check = False;
+
+$file = file_get_contents("lamps.json");
+$json = json_decode($file, true);
+$lamps = count($json['lamps']);
+if ($lamps == 0){
+  $lamps = 3;
+}
 
 if (isset($_GET['lamp']) && isset($_GET['state'])) {
 
@@ -12,9 +20,6 @@ if (isset($_GET['lamp']) && isset($_GET['state'])) {
 	if($state != "on" && $state != "off"){
 		$invalid_state = True;
 	}
-
-	$lamps = 3;
-	$lamp_check = False;
 
 	for($i = 1; $i <= $lamps; $i++) {
 		if ($i == $lamp){
@@ -29,7 +34,7 @@ if (isset($_GET['lamp']) && isset($_GET['state'])) {
 
 	if (!$invalid_state && !$invalid_lamp) {
         	shell_exec("sudo kaku $lamp A $state");
-	} 
+	}
 }
 else {
 	$not_set = True;
